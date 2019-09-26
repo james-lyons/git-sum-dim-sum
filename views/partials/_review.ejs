@@ -1,0 +1,7 @@
+<div class="review" id=<%=foundReview._id%>>  
+        <p class=review-text><%= foundReview.reviewText %></p>  
+        <p class=review-author>-<%= foundReview.author.name %></p>
+        <button type="button" class="edit-review" onclick="toggleHiddenOne(event)">Edit Review</button>
+        <button type="button" class='delete-review' onclick='deleteReview(event)'>Delete Review</button>
+        <% include _editReview.ejs %>
+</div>

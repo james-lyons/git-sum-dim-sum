@@ -1,0 +1,22 @@
+ <div class='card col' id=<%=foundRestaurant.id%>>
+ <a href="/viewrestaurant/<%=foundRestaurant.id%>">
+ <div class='card-body'>
+    <div class='card-image'>
+        <img class=card-image src=<%=foundRestaurant.image%> alt='dimsum' />
+    </div>    
+    <div class="card-content">
+        <div class='card-name'>
+            <h4 class="card-h4"><%= foundRestaurant.name %></h4>
+        </div>
+        <div class='card-address'>
+            <p class="card-p"><%= foundRestaurant.address %></p>
+        </div>   
+        <div class='card-reviews'>
+            <p class="card-p">Reviews: [<%= foundRestaurant.reviews.length %>]</p>
+        </div>
+    </div>
+</div>
+</a>
+</div>
+
+    

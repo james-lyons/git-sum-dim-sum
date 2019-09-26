@@ -1,0 +1,10 @@
+<section class="hidden not-logged-in">
+    <h4>log in to write a review</h4>
+</section>
+
+<section class="hidden add-review">        
+        <form class='write-review'>
+        <p><button type="submit" id=<%=foundRestaurant._id%> onclick="addReview(event)">Submit</button></p>
+        <textarea name='review' id='reviewText' rows='10' cols='40' placeholder="write your review here"></textarea>
+        </form>
+</section>

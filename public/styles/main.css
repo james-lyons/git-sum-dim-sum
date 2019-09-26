@@ -1,0 +1,350 @@
+ * {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+  text-decoration: none;
+}
+
+body {
+  background: burlywood;
+  height: 100vh;
+  width: 100vw;
+}
+
+nav {
+  background: burlywood;
+  display: flex;
+  padding: 10px 15px 10px 40px;
+}
+
+li {
+  color: black;
+  display: flex;
+  flex-direction: row;
+  display: inline-block;
+  margin: 10px;
+  border: 1px solid;
+  border-radius: 10px;
+  padding: 10px;
+  background: whitesmoke;
+  width: 8em;
+  text-align: center;
+}
+
+.nav-h1 {
+  background: burlywood;
+  padding: 0 0 0 125px;
+  text-align: center;
+  font-size: 3rem;
+}
+
+h1.welcome {
+  text-align: left;
+  padding-top: 20px;
+  padding-left: 20px;
+  font-size: 3rem;
+}
+
+main {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background-image: url('../images/dimsum background.jpg');
+  background-size: contain;
+  overflow-y: scroll;
+}
+
+.card-section {
+  position: fixed;
+  height: 80vh;
+  text-align: center;
+  overflow-y: scroll;
+}
+
+.card {
+  display: inline-block;
+  position: relative;
+  background-color: rgb(200, 60, 40);
+  text-align: center;
+  flex-flow: column wrap;
+  padding-top: 30px;
+  margin: 30px 40px;
+  padding: 10px;
+  box-shadow: 10px 10px 8px #888888;
+  width: 21vw;
+  height: 60%;
+  border-radius: 15px;
+}
+
+.card-body > div {
+  margin: 10px auto;
+  padding: 5px;
+  max-height: 20vh; 
+}
+
+.card-h4 {
+  margin: 30px 0 0 0;
+  font-size: 25px;
+  color: aqua;
+}
+
+.card-p {
+  font-size: 20px;
+  color: aqua;
+  padding: 8px;
+}
+
+.card-content {
+  display: grid;
+  place-items: center;
+  padding-top: .3em;
+}
+
+h3 {
+  font-size: 30px;
+}
+
+p {
+  font-size: 25px;
+}
+
+.card-image {
+  max-width: 17vw;
+  max-height: 17vh;
+}
+
+.restaurant-image {
+  max-height: 40vh;
+}
+
+.view-image {
+  margin: 40px 0 0 0;
+}
+
+div.view {
+  flex-flow: column wrap;
+  margin-left: 40px;
+  margin: 5px;
+}
+
+#map {
+  height: 35vh;
+  width: 35vw;
+} 
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.menu-link {
+  color:black;
+  text-decoration: underline;
+}
+
+#map {
+  margin: 0 50px 50px 0;
+}
+
+.hidden {
+  display: none;
+}
+
+section.add-review {
+  flex-flow: row wrap;
+}
+
+section.welcome {
+  margin-left: 30px;
+}
+
+.welcome-h1 {
+  text-align: center;
+  font-size: 3rem;
+}
+
+section.reviews {
+  background: burlywood;
+  background-size: 50px;
+  display: flex;
+  width: 85%;
+  min-height: 100px;
+  border: 1px solid black;
+  border-radius: 20px;
+  flex-wrap: wrap;
+}
+
+span.review-title {
+  display: block;
+  margin-left: 50px;
+  margin-top: 20px;
+}
+
+
+div.review {
+  background: rgb(252, 227, 184);
+  border: 1px solid black;
+  border-radius: 20px;
+  width: 20vw;
+  min-height: 20vh;
+  max-height: max-content;
+  padding: 10px;
+  margin: 30px;
+  flex-flow: row wrap;
+  box-shadow: 5px 10px 20px rgb(109, 70, 49);
+  }
+
+ 
+
+  h3.review-head {
+    background: rgba(222,184,135 ,.8 );
+    width: max-content;
+  }
+
+
+.edit-review {
+  z-index: 2;
+  background: white;
+}
+
+p.review-author {
+  justify-self: flex-end;
+}
+
+button.edit-review, button.delete-review {
+  padding: 10px 10px;
+  font-size: 10px;
+  text-align: center;
+  flex-direction: row-reverse
+}
+
+
+
+/* .form-group {
+} */
+
+::placeholder {
+  font-size: 2em;
+}
+input[type='text'] {
+  padding: 10px 10px;
+  font-size: 10px;
+  text-align: center;
+}
+
+div.login {
+  padding: 50px;
+}
+
+input.login, label.input {
+  padding: 5px 5px;
+  margin: 5px;
+  font-size: 10px;
+
+}
+div.signup {
+  padding: 50px;
+}
+
+input.signup, label.signup {
+  padding: 5px 5px;
+  margin: 5px;
+  font-size: 10px;
+
+}
+
+section.signup {
+  background: burlywood;
+  background-size: cover;
+  margin: 20px 50px;
+}
+
+span.restaurant {
+  background-image: url('../images/dumpling_icon.png');
+  background-size: 50px;
+  display: flex;
+}
+
+div.restaurant-info {
+  margin-left: 50p;
+  background: rgba(222,184,135 ,.8 );
+  width: max-content;
+}
+div.restaurant-view {
+  padding-left: 50px;
+}
+
+div.view {
+  width: 100%;
+}
+
+div.view-image {
+  max-height: max-content;
+  padding: 0;
+  margin-top: 40px;
+}
+
+div.view-reviews {
+  display: flex;
+  width: 85%;
+  flex-flow: row-wrap;
+  border: 1px solid black;
+  border-radius: 20px;
+  min-height:50px;
+}
+
+
+
+div#map {
+  z-index: 2;
+  flex-direction: row-reverse;
+}
+
+
+
+
+input[type='search'] {
+  background: lightblue;
+  color: black;
+  width: 25%;
+  padding: 10px 10px;
+  font-size: 3em;
+  border: none;
+  display: none;
+}
+
+input[type='search']::placeholder {
+  color: black;
+  text-align: center;
+}
+
+label[for="name"] {
+ font-size: 25px;
+ text-align: center;
+ padding: 10px
+}
+
+label[for="email"] {
+ font-size: 25px;
+ text-align: center;
+ padding: 10px
+}
+
+label[for="password"] {
+ font-size: 25px;
+ text-align: center;
+ padding: 10px
+}
+
+label[for="submit"] {
+ font-size: 25px;
+ text-align: center;
+ padding: 10px
+}
+.search-section {
+  background: burlywood;
+  padding: 0 0 2rem;
+  display: grid;
+  place-items: center;
+}

@@ -1,0 +1,45 @@
+<% include ./partials/_head.ejs %>
+<% include ./partials/_nav.ejs%>
+
+<script src='../config.js' defer></script>
+
+<span class="restaurant">
+
+<div class='view restaurant-view' id="foundRestaurant._id">
+    <div class='view view-image'>
+        <img class="restaurant-image" src=<%=foundRestaurant.image%> alt='dimsum' />
+    </div>
+    <div class="restaurant-info">
+        <div class='view view-name'>
+            <h3><%= foundRestaurant.name %></h3>
+        </div>
+        <div class='view view-address'>
+            <p id="address"><%= foundRestaurant.address %></p>
+        </div>
+        <div class='view view-phone'>
+            <p><%= foundRestaurant.phone %></p>
+        </div>
+        <div class='view view-hours'>
+            <p><%= foundRestaurant.hours %></p>
+        </div>
+        <div class='view view-menu'>
+            <p><a class="menu-link" href='<%=foundRestaurant.menuLink%>'>Menu</a></p>
+        </div>
+    </div>
+
+    <div id="map"></div>
+
+    <h3 class='review-head'>Reviews:</h3>
+    <button class='add-review not-logged-in review-head' id='add-review' onclick="toggleHidden('.add-review')">Write a Review</button>
+
+    <section class="reviews">
+        <% include ./partials/_addReview %>
+        <%foundRestaurant.reviews.forEach(function(foundReview){%>
+        <% include ./partials/_review %>
+        <% }); %>
+    </section>
+</div>
+</span>
+
+
+<% include ./partials/_footer.ejs %>

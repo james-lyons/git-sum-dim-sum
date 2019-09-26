@@ -1,0 +1,14 @@
+<nav>
+  <ul>
+      <% if (typeof currentUser !== 'undefined') { %>
+        <li><a href="/">Home Page</a></li>
+        <li><a href="/profile">Profile</a></li>
+        <li><a href="/accounts/logout">Logout</a></li>
+      <% } else { %>
+        <li><a href="/">Home Page</a></li>
+        <li><a href="/accounts/signup">Sign Up</a></li>
+        <li><a href="/accounts/login">Login</a></li>
+      <% } %>
+  </ul>
+  <h1 class="nav-h1">GIT SOME DIM SUM</h1>
+</nav>

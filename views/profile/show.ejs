@@ -1,0 +1,29 @@
+<% include ../partials/_head.ejs %>
+
+<nav>
+    <ul>
+        <li><a href="/">Homepage</a></li>
+        <li><a href="/accounts/logout">Logout</a></li>
+    </ul>
+</nav>
+
+<section class="container">
+<section class="welcome">
+    <h1 class="welcome">Welcome <%= currentUser && currentUser.name %></h1>
+</section>
+
+    <% const foundReviews = currentUser.reviews %>
+    <% if (foundReviews){%>
+        <span class="review-title">
+            <h2>Your Reviews:</h2> 
+        <span>
+        <section class="reviews">
+        <% foundReviews.forEach(function(foundReview){ %>
+        <% include ../partials/_review.ejs %>
+        <%})%>
+    <% }; %>
+</section>
+</section>
+
+
+<% include ../partials/_footer.ejs %>

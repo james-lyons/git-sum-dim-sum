@@ -1,0 +1,12 @@
+<% include ./partials/_head.ejs %>
+<% include ./partials/_nav.ejs%>
+
+<main>
+<section class="card-section col-container" >
+    <% foundRestaurants.forEach(function(foundRestaurant){ %>
+    <% include ./partials/_restaurantCard %>
+    <% }); %>
+</section>
+</main>
+
+<% include ./partials/_footer.ejs %>
