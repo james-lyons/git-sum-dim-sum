@@ -15,26 +15,16 @@ const index = (req, res) => {
     });
 };
 
-// Show All Restaurants
-const showRestaurants = (req, res) => {
-    db.Restaurant.find({})
-        .populate('reviews')
-        .exec((err, foundRestaurants) => {
-        if (err) return res.sendErrorResponse(res, err);
-        res.render('index', {foundRestaurants, currentUser: req.session.currentUser});
-    });
-};
-
-// Show One Restaurant
 const show = (req, res) => {
-    db.Restaurant.findOne({name: req.params.name}, (error, foundRestaurant) => {
+    db.Restaurant.findOne({_id: req.params.id})
+        .populate({path: 'reviews',  populate: { path: 'author' }})
+        .exec((error, foundRestaurant) => {
         if (error) return response.sendErrorResponse(res, error);
-        response.sendResponse(res, foundRestaurant);
+        res.render('viewRestaurant', {foundRestaurant, currentUser: req.session.currentUser});
     });
 }
 
 module.exports = {
     index,
     show,
-    showRestaurants,
 };

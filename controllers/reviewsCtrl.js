@@ -26,19 +26,24 @@ const create = (req, res) => {
     if (!req.session.currentUser) {
         return console.log(req);
     }
+
     const review = {author: req.session.currentUser._id, ...req.body}
+
     db.Review.create(review, (error, createdReviews) => {
         if (error) return res.sendErrorResponse(res, error);
-        db.Restaurant.findById(req.body.restaurant, (error, foundRestaurant)=>{
+
+        db.Restaurant.findById(req.body.restaurant, (error, foundRestaurant) => {
             if (error) return res.sendErrorResponse(res, error);
             foundRestaurant.reviews.push(createdReviews._id)
             foundRestaurant.save()
         });
-        db.User.findById(req.session.currentUser._id, (error, foundUser)=>{
+
+        db.User.findById(req.session.currentUser._id, (error, foundUser) => {
             if (error) return res.sendErrorResponse(res, error);
             foundUser.reviews.push(createdReviews._id)
             foundUser.save()
         });
+        
         response.sendResponse(res, createdReviews);
     });
 };

@@ -2,8 +2,9 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
-const session = require('express-session')
-const routes = require('./routes')
+const session = require('express-session');
+const cors = require('cors');
+const routes = require('./routes');
 
 // ------------------------------- Instanced Modules ------------------------------- //
 
@@ -24,23 +25,26 @@ app.use(session({
     saveUninitialized: false
 }));
 
-// --------------------------------- Static Assets --------------------------------- //
-
-app.use(express.static(`${__dirname}/public`));
+const corsOptions = {
+    origin: 'http://localhost:3000',
+    methods: ["GET", "PUT", "POST", "HEAD", "DELETE", "OPTIONS"],
+    headers: ["Origin", "X-Requested-With", "Content-Type", "Accept"],
+    credentials: true,
+    optionsSuccessStatus: 200
+};
+app.use(cors(corsOptions));
+app.options('http://localhost:3000', cors());
 
 // ------------------------------------- Routes ------------------------------------ //
 
-// HTML Endpoints
-app.get('/', routes.restaurants);
-app.use('/', routes.viewRestaurant);
-app.use('/reviews', routes.reviews);
-app.use('/accounts', routes.accounts);
-app.use('/profile', routes.profile);
+app.get('/', (req, res) => {
+    res.send('<h1>Git Sum Dim Sum</h1>')
+});
 
-// API Endpoints
-app.get('/api/v1/restaurants', routes.restaurants);
-app.get('/api/v1/users', routes.users);
-app.use('/api/v1/reviews', routes.reviews)
+app.use('/auth', routes.auth);
+app.use('/accounts', routes.accounts);
+app.use('/restaurants', routes.restaurants);
+app.use('/reviews', routes.reviews);
 
 // --------------------------------- Server Listener ------------------------------ //
 

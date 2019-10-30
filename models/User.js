@@ -14,11 +14,13 @@ const userSchema = new Schema({
         type: String,
         require: true,
     },
-    reviews: [{
-        type: Schema.Types.ObjectId,
-        ref: 'Review',
-        require: false,
-    }],
+    reviews: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Review',
+            require: false,
+        }
+    ],
     sign_up_date: {
         type: Date,
         default: Date.now,

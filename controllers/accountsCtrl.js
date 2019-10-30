@@ -1,116 +1,59 @@
 // ------------------------- Modules ------------------------- //
 
-const bcrypt = require('bcryptjs');
 const db = require('../models');
+const response = require('../routes/response');
 
 // ----------------------- Controllers ----------------------- //
 
-// Get New User
-const newUser = (req, res) => {
-    res.render('accounts/signup');
+// Shows All Users
+const index = (req, res) => {
+    db.User.find({}, (error, foundUsers) => {
+        if (error) return res.status(500).json({
+            status: 500,
+            message: 'Something went wrong, please try again.'
+        });
+
+        return res.status(200).json({
+            status: 200,
+            message: 'Successfully found users',
+            data: foundUsers
+        })
+    });
 };
 
-// POST Create New User
-const createUser = (req, res) => {
-    const errors = [];
-    if (!req.body.name) {
-        errors.push({ field: 'name', message: 'Please enter your name' })
-    };
+const show = (req, res) => {
+    db.User.findById(req.session.currentUser._id, (err, foundUser) => {
+        if (err) return res.status(500).json({
+            status: 500,
+            message: 'Something went wrong, please try again.'
+        });
 
-    if (!req.body.email) {
-        errors.push({ field: 'email', message: 'Please enter your email '})
-    };
+        res.status(200).json({
+            status: 200,
+            message: 'Successfully found user',
+            data: foundUser
+        })
+    })
+    .populate('reviews')
+};
 
-    if (!req.body.password) {
-        errors.push({ field: 'password', message: 'Please enter your password' })
-    };
+// Deletes One User
+const deleteUser = (req, res) => {
+    db.User.findOneAndDelete({name: req.params.name}, (err, deletedUser) => {
+        if (err) return res.status(500).json({
+            status: 500,
+            message: 'Something went wrong, please try again'
+        });
 
-    if (req.body.password !== req.body.password2) {
-        errors.push({ field: 'password', message: 'Passwords must match'})
-    };
-
-    if (errors.length) {
-        return res.render('accounts/signup', { errors })
-    };
-
-    // Generate Hash Salt
-    bcrypt.genSalt(10, (err, salt) => {
-        if (err) return res.render('accounts/signup', { errors: [
-            {message: 'Something went wrong, please try again'}] });
-
-        bcrypt.hash(req.body.password, salt, (err, hash) => {
-            if (err) return res.render('accounts/signup', { errors: [
-                {message: 'Something went wrong, please try again'}] });
-
-            const newUser = req.body;
-            newUser.password = hash;
-
-            db.User.create(newUser, (err, savedUser) => {
-                if (err) return res.render('accounts/signup', {errors: [
-                    {message: 'Something went wrong, please try again'}] });
-
-                res.redirect('/accounts/login/', )
-            });
+        return res.status(202).json({
+            status: 202,
+            message: 'Account successfully deleted'
         });
     });
-};
-
-// ------------------------- Login ------------------------- //
-const newSession = (req, res) => {
-    res.render('accounts/login');
-}
-
-const createSession = (req, res) => {
-    const errors = [];
-    if (!req.body.email) {
-        errors.push({ field: 'email', message: 'Please enter your email '})
-    };
-
-    if (!req.body.password) {
-        errors.push({ field: 'password', message: 'Please enter your password' })
-    };
-
-    if (errors.length) {
-        return res.render('accounts/login', { errors })
-    };
-
-    db.User.findOne({ email: req.body.email}, (err, foundUser) => {
-        if (err) return res.render('accounts/login', { errors: [
-            {message: 'Something went wrong, please try again'}] });
-
-        if (!foundUser) {
-            return res.render('accounts/login', { errors: [
-                {message: 'Username or password is incorrect'}] });
-            }
-
-        bcrypt.compare(req.body.password, foundUser.password, (err, isMatch) => {
-            if (err) return res.render('accounts/signup', {errors: [
-                {message: 'Something went wrong, please try again'}] });
-            if (isMatch) {
-                req.session.currentUser = { 
-                    _id: foundUser._id,
-                    name: foundUser._name,
-                    email: foundUser.email
-                };
-                res.redirect('/profile');
-            } else {
-                return res.render('accounts/login', { errors: [{ message: 'Username or password is incorrect'}] });
-            };
-        });
-    });
-};
-
-const deleteSession = (req, res) => {
-    req.session.destroy((err) => {
-        if (err) return res.render('accounts/login', { errors: [{ message: 'something went wrong, please try again' }] });
-    });
-    res.redirect('/accounts/login');
 };
 
 module.exports = {
-    newUser,
-    createUser,
-    newSession,
-    createSession,
-    deleteSession
+    index,
+    show,
+    deleteUser
 }

@@ -1,9 +1,7 @@
 module.exports = {
-    restaurants: require('./restaurants'),
+    auth: require('./auth'),
     accounts: require('./accounts'),
-    profile: require('./profile'),
-    viewRestaurant: require('./viewRestaurant'),
+    restaurants: require('./restaurants'),
     reviews: require('./reviews'),
-    users: require('./users'),
     response: require('./response')
 };

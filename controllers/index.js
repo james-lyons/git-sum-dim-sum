@@ -1,8 +1,6 @@
 module.exports = {
-    restaurantCtrl: require('./restaurantCtrl'),
+    authCtrl: require('./authCtrl'),
     accountsCtrl: require('./accountsCtrl'),
-    profileCtrl: require('./profileCtrl'),
-    viewRestaurantCtrl: require('./viewRestaurantCtrl'),
+    restaurantsCtrl: require('./restaurantsCtrl'),
     reviewsCtrl: require('./reviewsCtrl'),
-    userCtrl: require('./userCtrl'),
 };
