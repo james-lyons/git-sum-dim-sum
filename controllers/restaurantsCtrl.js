@@ -6,14 +6,41 @@ const response = require('../routes/response');
 // ----------------------- Controllers ----------------------- //
 
 // Find Restaurants and Populate Referenced Reviews
-const index = (req, res) => {
-    db.Restaurant.find({})
-        .populate('reviews')
-        .exec((error, foundRestaurants) => {
-        if (error) return response.sendErrorResponse(res, error);
-        response.sendResponse(res, foundRestaurants);
-    });
+const indexRestaurants = (req, res) => {
+    db.Restaurant.find({}, (err, foundRestaurants) => {
+        if (err) return res.status(500).json({
+            status: 500,
+            message: 'Something went wrong, please try again.'
+        });
+
+        res.status(200).json({
+            status: 200,
+            message: 'Successfully fetched restaurants.',
+            data: foundRestaurants
+        });
+    })
+    .populate('reviews');
 };
+
+const indexRestaurantsByParams = (req, res) => {
+    console.log(req.query)
+    db.Restaurant.find({
+        $or: [{ name: req.query.name }, { city: req.query.city }]},
+        (err, foundRestaurants) => {
+            if (err) return res.status(500).json({
+                status: 500,
+                message: 'Something went wrong, please try again.'
+            });
+
+            res.status(200).json({
+                status: 200,
+                message: 'Successfully fetched restaurants.',
+                data: foundRestaurants
+            });
+        })
+        .populate('reviews');
+};
+
 
 const show = (req, res) => {
     db.Restaurant.findOne({_id: req.params.id})
@@ -25,6 +52,7 @@ const show = (req, res) => {
 }
 
 module.exports = {
-    index,
+    indexRestaurants,
+    indexRestaurantsByParams,
     show,
 };

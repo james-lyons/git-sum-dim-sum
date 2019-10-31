@@ -10,6 +10,10 @@ const restaurantSchema = new Schema({
         type: String,
         require: true,
     },
+    city: {
+        type: String,
+        require: true
+    },
     phone: {
         type: String,
         require: true,

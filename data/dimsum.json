@@ -2,6 +2,7 @@
     {
        "name" : "Good Mong Kok Bakery",
        "address": "1039 Stockton St. San Francisco",
+       "city": "San Francisco",
        "phone": "415.397.2688",
        "hours": "Everyday: 7am - 6pm",
        "menuLink": "https://www.goodmongkok.com/menu/",
@@ -14,6 +15,7 @@
     {
       "name" : "Golden Gate Bakery",
       "address" : "1029 Grant Ave. San Francisco",
+      "city": "San Francisco",
       "phone" : "415.781.2627",
       "hours" : "Everyday: 8am - 8pm",
       "menuLink" : "http://goldengatebakery.com/",
@@ -26,6 +28,7 @@
     {
        "name" : "Hang Ah Dim Sum Tea House",
        "address": "1 Pagoda Place, San Francisco",
+       "city": "San Francisco",
        "phone": "415.982.5686",
        "hours": "Tuesday 10:30am - 2:30pm, Wednesday-Monday 10:30am - 9pm",
        "menuLink": "http://www.hangah1920.com/menu/",
@@ -38,6 +41,7 @@
     {
       "name" : "Yank Sing",
       "address" : "49 Stevenson St. San Francisco",
+      "city": "San Francisco",
       "phone" : "415.541.4949",
       "hours" : "Monday-Friday: 11am - 3pm, Saturday-Sunday: 10am - 4pm",
       "menuLink" : "https://www.yanksing.com/",
@@ -50,6 +54,7 @@
     {
       "name" : "Canton Seafood & Dim Sum Restaurant",
       "address" : "655 Folsom St. San Francisco",
+      "city": "San Francisco",
       "phone" : "415.495.3064",
       "hours" : "Everyday: 10:30am - 9:30pm",
       "menuLink" : "http://www.cantonsf.com/",
@@ -62,6 +67,7 @@
     {
       "name" : "Dim Sum Corner",
       "address" : "601 Grant Ave. San Francisco",
+      "city": "San Francisco",
       "phone" : "415.362.1118",
       "hours" : "Everyday: 1030am - 8:30pm",
       "menuLink" : "http://dimsumcornersf.com/",
@@ -74,6 +80,7 @@
     {
       "name" : "City View Restaurant",
       "address" : "662 Commercial St. San Francisco",
+      "city": "San Francisco",
       "phone" : "415.398.2838",
       "hours" : "Monday - Friday: 11am - 2:30pm, Saturday - Sunday: 10am - 2:30pm",
       "menuLink" : "http://places.singleplatform.com/city-view-restaurant/menu?ref=google",
@@ -86,6 +93,7 @@
     {
       "name" : "Yummy Dim Sum & Fast Food",
       "address" : "930 Stockton St. San Francisco",
+      "city": "San Francisco",
       "phone" : "415.986.2783",
       "hours" : "Everyday: 6:30am - 7pm",
       "menuLink" : "http://yummy-dim-sum-san-francisco-2.sites.tablehero.com/",
@@ -98,6 +106,7 @@
     {
       "name" : "Imperial Palace",
       "address" : "818 Washington St. San Francisco",
+      "city": "San Francisco",
       "phone" : "415.956.9888",
       "hours" : "Sunday - Thursday: 8am - 10pm, Friday - Saturday: 8am - 10:30pm",
       "menuLink" : "http://imperialpalacesfca.com/",
@@ -110,6 +119,7 @@
     {
       "name" : "Dim Sum Bistro",
       "address" : "4405 675 Broadway, San Francisco",
+      "city": "San Francisco",
       "phone" : "415.788.7028",
       "hours" : "Everyday: 6:30am - 4:30pm",
       "menuLink" : "http://mydimsumbistro.com/",
