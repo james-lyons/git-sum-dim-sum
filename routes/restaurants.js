@@ -4,6 +4,6 @@ const router = express.Router();
 
 router.get('/', ctrls.restaurantsCtrl.indexRestaurants);
 router.get('/search', ctrls.restaurantsCtrl.indexRestaurantsByParams);
-router.get('/:id', ctrls.restaurantsCtrl.show)
+router.get('/:slug', ctrls.restaurantsCtrl.show)
 
 module.exports = router;

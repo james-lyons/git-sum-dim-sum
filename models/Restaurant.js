@@ -46,6 +46,10 @@ const restaurantSchema = new Schema({
     image: {
         type: String,
         require: true,
+    },
+    slug: {
+        type: String,
+        required: true,
     }
 })
 

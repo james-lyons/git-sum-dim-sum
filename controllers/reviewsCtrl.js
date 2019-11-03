@@ -6,70 +6,104 @@ const response = require('../routes/response');
 // ----------------------- Controllers ----------------------- //
 
 // Find All Reviews
-const index = (req, res) => {
+const indexReviews = (req, res) => {
     db.Review.find({}, (error, foundReviews) => {
-        if (error) return response.sendErrorResponse(res, error);
-        response.sendResponse(res, foundReviews);
-    });
-};
+        if (error) return res.status(500).json({
+            status: 500,
+            message: 'Something went wrong, please try again'
+        });
 
-// Find One Review
-const show = (req, res) => {
-    db.Review.findOne({name: req.params.name}, (error, foundReviews) => {
-        if (error) return response.sendErrorResponse(res, error);
-        response.sendResponse(res, foundReviews);
+        res.status(200).json({
+            status: 200,
+            message: 'Reviews successfully found',
+            data: foundReviews
+        });
     });
 };
 
 // Create A Review
-const create = (req, res) => {
+const createReview = (req, res) => {
     if (!req.session.currentUser) {
-        return console.log(req);
+        res.status(400).json({
+            status: 400,
+            message: 'Must be logged in to submit a review, please login!',
+        })
     }
 
-    const review = {author: req.session.currentUser._id, ...req.body}
+    const review = {
+        author: req.session.currentUser._id,
+        author_name: req.session.currentUser.name,
+        ...req.body }
 
-    db.Review.create(review, (error, createdReviews) => {
-        if (error) return res.sendErrorResponse(res, error);
+    db.Review.create(review, (error, createdReview) => {
+        if (error) return res.status(500).json({
+            status: 500,
+            message: 'Something went wrong, please try again'
+        });
 
-        db.Restaurant.findById(req.body.restaurant, (error, foundRestaurant) => {
-            if (error) return res.sendErrorResponse(res, error);
-            foundRestaurant.reviews.push(createdReviews._id)
+        db.Restaurant.findById(req.body.restaurant_id, (error, foundRestaurant) => {
+            if (error) return res.status(500).json({
+                status: 500,
+                message: 'Something went wrong, please try again'
+            });
+
+            foundRestaurant.reviews.push(createdReview.id)
             foundRestaurant.save()
         });
 
         db.User.findById(req.session.currentUser._id, (error, foundUser) => {
-            if (error) return res.sendErrorResponse(res, error);
-            foundUser.reviews.push(createdReviews._id)
+            if (error) return res.status(500).json({
+                status: 500,
+                message: 'Something went wrong, please try again.',
+            });
+
+            foundUser.reviews.push(createdReview._id)
             foundUser.save()
         });
-        
-        response.sendResponse(res, createdReviews);
-    });
-};
-
-// Delete A Review
-const deleteReview = (req, res) => {
-    db.Review.findOneAndDelete({_id: req.params._id}, (error, deletedReviews) => {
-        if(error) return response.sendErrorResponse(res, error);
-        response.sendResponse(res, deletedReviews);
+    
+        res.status(201).json({
+            status: 201,
+            message: 'Successfully created review',
+            data: createdReview
+        });
     });
 };
 
 // Edit A Review
 const editReview = (req, res) => {
-    console.log(req.params._id);
-    db.Review.findOneAndUpdate({_id: req.params._id}, req.body, (error, editedReviews) => {
-        if(error) return response.sendErrorResponse(res, error);
-        response.sendResponse(res, editedReviews);
+    db.Review.findOneAndUpdate(req.params.id, req.body, (error, editedReview) => {
+        if (error) return res.status(500).json({
+            status: 500,
+            message: 'Something went wrong, please try again.',
+        });
+
+        res.status(202).json({
+            status: 202,
+            message: 'Successfully edited review.',
+            data: editedReview
+        });
+    });
+};
+
+// Delete A Review
+const deleteReview = (req, res) => {
+    db.Review.findOneAndDelete(req.params.id, (error, deletedReview) => {
+        if (error) return res.status(500).json({
+            status: 500,
+            message: 'Something went wrong, please try again.'
+        });
+
+        res.status(200).json({
+            status: 200,
+            message: 'Successfully deleted review.',
+            data: deletedReview
+        });
     });
 };
 
 module.exports = {
-    index: index,
-    show: show,
-    create: create,
-    delete: deleteReview,
-    edit: editReview
-
+    indexReviews,
+    createReview,
+    editReview,
+    deleteReview,
 };

@@ -10,7 +10,8 @@
        "lng" : "-122.406880",
        "averageRating": "4.4",
        "reviews": [],
-       "image": "https://images.firstwefeast.com/complex/images/c_limit,f_auto,fl_lossy,q_auto,w_1100/vio2cftfrc8nxxnsnwhv/pork-buns"
+       "image": "https://images.firstwefeast.com/complex/images/c_limit,f_auto,fl_lossy,q_auto,w_1100/vio2cftfrc8nxxnsnwhv/pork-buns",
+       "slug": "Good_Mong_Kok_Bakery"
     },
     {
       "name" : "Golden Gate Bakery",
@@ -23,7 +24,8 @@
       "lng" : "-122.406880",
       "averageRating" : "4.2",
       "reviews": [],
-      "image" : "https://images.firstwefeast.com/complex/images/c_limit,f_auto,fl_lossy,q_auto,w_1100/oc5hznbwcldsldxwgr2t/egg-tart"
+      "image" : "https://images.firstwefeast.com/complex/images/c_limit,f_auto,fl_lossy,q_auto,w_1100/oc5hznbwcldsldxwgr2t/egg-tart",
+      "slug": "Golden_Gate_Bakery"
     },
     {
        "name" : "Hang Ah Dim Sum Tea House",
@@ -36,7 +38,8 @@
        "lng" : "-122.406880",
        "averageRating": "4.1",
        "reviews": [],
-       "image": "https://images.firstwefeast.com/complex/images/c_limit,f_auto,fl_lossy,q_auto,w_1100/t9wkdskvqwresoqdeqtf/har-gow"
+       "image": "https://images.firstwefeast.com/complex/images/c_limit,f_auto,fl_lossy,q_auto,w_1100/t9wkdskvqwresoqdeqtf/har-gow",
+       "slug": "Hang_Ah_Dim_Sum_Tea_House"
     },
     {
       "name" : "Yank Sing",
@@ -49,7 +52,8 @@
       "lng" : "-122.406880",
       "averageRating" : "4.3",
       "reviews": [],
-      "image" : "https://images.firstwefeast.com/complex/images/c_limit,f_auto,fl_lossy,q_auto,w_1100/uepjybqusif4dvrhovxu/sponge-cake"
+      "image" : "https://images.firstwefeast.com/complex/images/c_limit,f_auto,fl_lossy,q_auto,w_1100/uepjybqusif4dvrhovxu/sponge-cake",
+      "slug": "Yank_Sing"
     },
     {
       "name" : "Canton Seafood & Dim Sum Restaurant",
@@ -62,7 +66,8 @@
       "lng" : "-122.406880",
       "averageRating" : "3.7",
       "reviews": [],
-      "image" : "https://images.firstwefeast.com/complex/images/c_limit,f_auto,fl_lossy,q_auto,w_1100/mizvbr9w3soazbrhq388/chicken-feet"
+      "image" : "https://images.firstwefeast.com/complex/images/c_limit,f_auto,fl_lossy,q_auto,w_1100/mizvbr9w3soazbrhq388/chicken-feet",
+      "slug": "Canton_Seafood_&_Dim_Sum_Restaurant"
     },
     {
       "name" : "Dim Sum Corner",
@@ -75,7 +80,8 @@
       "lng" : "-122.406880",
       "averageRating" : "4.1",
       "reviews": [],
-      "image" : "https://images.firstwefeast.com/complex/images/c_crop,h_443,w_590,x_0,y_146/c_limit,f_auto,fl_lossy,q_auto,w_1100/rx54scuarii8kqaic2vm/radish-puff"
+      "image" : "https://images.firstwefeast.com/complex/images/c_crop,h_443,w_590,x_0,y_146/c_limit,f_auto,fl_lossy,q_auto,w_1100/rx54scuarii8kqaic2vm/radish-puff",
+      "slug": "Dim_Sum_Corner"
     },
     {
       "name" : "City View Restaurant",
@@ -88,7 +94,8 @@
       "lng" : "-122.406880",
       "averageRating" : "4.4",
       "reviews": [],
-      "image" : "https://images.firstwefeast.com/complex/images/c_limit,f_auto,fl_lossy,q_auto,w_1100/g2ywlsv9oxeosfmmnivi/pork-buns"
+      "image" : "https://images.firstwefeast.com/complex/images/c_limit,f_auto,fl_lossy,q_auto,w_1100/g2ywlsv9oxeosfmmnivi/pork-buns",
+      "slug": "City_View_Restaurant"
     },
     {
       "name" : "Yummy Dim Sum & Fast Food",
@@ -101,7 +108,8 @@
       "lng" : "-122.406880",
       "averageRating" : "3.8",
       "reviews": [],
-      "image" : "https://images.firstwefeast.com/complex/images/c_limit,f_auto,fl_lossy,q_auto,w_1100/gn5mhebgnkgd2ooerte7/stuffed-eggplant"
+      "image" : "https://images.firstwefeast.com/complex/images/c_limit,f_auto,fl_lossy,q_auto,w_1100/gn5mhebgnkgd2ooerte7/stuffed-eggplant",
+      "slug": "Yummy_Dim_Sum_&_Fast_Food"
     },
     {
       "name" : "Imperial Palace",
@@ -114,7 +122,8 @@
       "lng" : "-122.406880",
       "averageRating" : "3.4",
       "reviews": [],
-      "image" : "https://images.firstwefeast.com/complex/images/c_limit,f_auto,fl_lossy,q_auto,w_1100/kfl3fwzpmt6jgwqswzqw/sticky-rice-lotus-leaf"
+      "image" : "https://images.firstwefeast.com/complex/images/c_limit,f_auto,fl_lossy,q_auto,w_1100/kfl3fwzpmt6jgwqswzqw/sticky-rice-lotus-leaf",
+      "slug": "Imperial_Palace"
     },
     {
       "name" : "Dim Sum Bistro",
@@ -127,6 +136,7 @@
       "lng" : "-122.406880",
       "averageRating" : "4.3",
       "reviews": [],
-      "image" : "https://images.firstwefeast.com/complex/images/c_limit,f_auto,fl_lossy,q_auto,w_1100/zyyxthragpiofsa2xisq/spring-roll"
+      "image" : "https://images.firstwefeast.com/complex/images/c_limit,f_auto,fl_lossy,q_auto,w_1100/zyyxthragpiofsa2xisq/spring-roll",
+      "slug": "Dim_Sum_Bistro"
     }
 ]

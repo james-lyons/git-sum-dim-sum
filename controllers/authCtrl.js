@@ -82,38 +82,47 @@ const register = (req, res) => {
 // ------------------------- Login ------------------------- //
 
 const login = (req, res) => {
-    const errors = [];
-    if (!req.body.email) {
-        errors.push({ field: 'email', message: 'Please enter your email '})
+
+    console.log(1)
+
+    if (!req.body.email || !req.body.password) {
+        return res.status(200).json({
+            status: 200,
+            message: 'Please enter your email and password'
+        });
     };
 
-    if (!req.body.password) {
-        errors.push({ field: 'password', message: 'Please enter your password' })
-    };
-
-    if (errors.length) {
-        return res.render('accounts/login', { errors })
-    };
+    console.log(2)
 
     db.User.findOne({ email: req.body.email}, (err, foundUser) => {
         if (err) return res.status(500).json({
             status: 500,
             message: 'Something went wrong, please try again'
-        })
+        });
 
-        if (!foundUser) {
-            return res.render('accounts/login', { errors: [
-                {message: 'Username or password is incorrect'}] });
-            }
+        console.log(3)
+
+        if (!foundUser) return res.status(400).json({
+            status: 400,
+            message: 'Email or password is incorrect'
+        });
+
+        console.log(4)
 
         bcrypt.compare(req.body.password, foundUser.password, (err, isMatch) => {
+            console.log(req.body.password)
             if (err) return res.status(500).json({
                 status: 500,
                 message: 'Something went wrong, please try again'
             });
 
+            console.log(5)
+
             if (isMatch) {
-                req.session.currentUser = { _id: foundUser._id };
+
+                console.log(6)
+
+                req.session.currentUser = { _id: foundUser._id, name: foundUser.name };
                 return res.status(200).json({
                     status: 200,
                     message: 'Successfully logged in',
@@ -121,6 +130,9 @@ const login = (req, res) => {
                 });
 
             } else {
+
+                console.log(7)
+
                 return res.status(400).json({
                     status: 400,
                     message: "Email or password is incorrect"

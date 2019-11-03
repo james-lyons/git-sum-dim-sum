@@ -7,6 +7,14 @@ const reviewSchema = new Schema({
         ref: 'User',
         require: false,
     },
+    author_name: {
+        type: String,
+        require: true,
+    },
+    restaurant_name: {
+        type: String,
+        required: true,
+    },
     restaurant: {
         type: Schema.Types.ObjectId,
         ref: 'Restaurant',
