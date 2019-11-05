@@ -4,21 +4,26 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
     name: {
         type: String,
-        require: true,
+        required: true,
     },
     email: {
         type: String,
-        require: true,
+        required: true,
     },
     password: {
         type: String,
-        require: true,
+        required: true,
+    },
+    role: {
+        type: String,
+        required: true,
+        default: user
     },
     reviews: [
         {
             type: Schema.Types.ObjectId,
             ref: 'Review',
-            require: false,
+            required: false,
         }
     ],
     sign_up_date: {

@@ -7,6 +7,7 @@ const db = require('../models');
 
 // POST Create New User
 const register = (req, res) => {
+
     const errors = [];
     if (!req.body.name) {
         errors.push({ field: 'name', message: 'Please enter your name' })
@@ -72,7 +73,6 @@ const register = (req, res) => {
                         message: 'Created new user',
                         data: newUser
                     });
-
                 });
             });
         });
@@ -82,9 +82,6 @@ const register = (req, res) => {
 // ------------------------- Login ------------------------- //
 
 const login = (req, res) => {
-
-    console.log(1)
-
     if (!req.body.email || !req.body.password) {
         return res.status(200).json({
             status: 200,
@@ -92,22 +89,16 @@ const login = (req, res) => {
         });
     };
 
-    console.log(2)
-
     db.User.findOne({ email: req.body.email}, (err, foundUser) => {
         if (err) return res.status(500).json({
             status: 500,
             message: 'Something went wrong, please try again'
         });
 
-        console.log(3)
-
         if (!foundUser) return res.status(400).json({
             status: 400,
             message: 'Email or password is incorrect'
         });
-
-        console.log(4)
 
         bcrypt.compare(req.body.password, foundUser.password, (err, isMatch) => {
             console.log(req.body.password)
@@ -116,12 +107,7 @@ const login = (req, res) => {
                 message: 'Something went wrong, please try again'
             });
 
-            console.log(5)
-
             if (isMatch) {
-
-                console.log(6)
-
                 req.session.currentUser = { _id: foundUser._id, name: foundUser.name };
                 return res.status(200).json({
                     status: 200,
@@ -130,8 +116,6 @@ const login = (req, res) => {
                 });
 
             } else {
-
-                console.log(7)
 
                 return res.status(400).json({
                     status: 400,
@@ -156,4 +140,4 @@ module.exports = {
     register,
     login,
     logout
-}
+};
