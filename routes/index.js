@@ -3,5 +3,6 @@ module.exports = {
     accounts: require('./accounts'),
     restaurants: require('./restaurants'),
     reviews: require('./reviews'),
-    response: require('./response')
+    response: require('./response'),
+    admin: require('./admin')
 };

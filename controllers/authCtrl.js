@@ -101,14 +101,13 @@ const login = (req, res) => {
         });
 
         bcrypt.compare(req.body.password, foundUser.password, (err, isMatch) => {
-            console.log(req.body.password)
             if (err) return res.status(500).json({
                 status: 500,
                 message: 'Something went wrong, please try again'
             });
 
             if (isMatch) {
-                req.session.currentUser = { _id: foundUser._id, name: foundUser.name };
+                req.session.currentUser = { _id: foundUser._id, name: foundUser.name, role: foundUser.role };
                 return res.status(200).json({
                     status: 200,
                     message: 'Successfully logged in',

@@ -17,7 +17,7 @@ const userSchema = new Schema({
     role: {
         type: String,
         required: true,
-        default: user
+        default: 'user'
     },
     reviews: [
         {

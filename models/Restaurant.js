@@ -26,18 +26,6 @@ const restaurantSchema = new Schema({
         type: String,
         require: true,
     },
-    lat: {
-        type: String,
-        require: true,
-    },
-    lng: {
-        type: String,
-        require: true,
-    },
-    averageRating: {
-        type: Number,
-        require: true,
-    },
     reviews: [{
         type: Schema.Types.ObjectId,
         ref: 'Review',
@@ -50,8 +38,9 @@ const restaurantSchema = new Schema({
     slug: {
         type: String,
         required: true,
+        default: Date.now()
     }
-})
+});
 
 const Restaurant = mongoose.model('Restaurant', restaurantSchema);
 module.exports = Restaurant;

@@ -45,6 +45,7 @@ app.use('/auth', routes.auth);
 app.use('/accounts', routes.accounts);
 app.use('/restaurants', routes.restaurants);
 app.use('/reviews', routes.reviews);
+app.use('/admin/', routes.admin);
 
 // --------------------------------- Server Listener ------------------------------ //
 

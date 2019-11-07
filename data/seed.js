@@ -2,36 +2,19 @@ const db = require('../models');
 const restaurantList = require('./dimsum.json');
 const adminList = require('./admin.json');
 
-db.Restaurant.remove({}, () => {
+db.Restaurant.deleteMany({}, () => {
 	restaurantList.forEach(restaurant => {
 		db.Restaurant.create(restaurant, (err, createdRestaurants) => {
-			if (err) return res.status(500).json({
-				status: 500,
-				message: err
-			});
-
-			return res.status(200).json({
-				status: 200,
-				message: 'Restaurants successfully created.',
-				data: createdRestaurants
-			});
+			if (err) return console.log(err)
 		});
 	});
 });
 
 //seeds admins
-db.User.remove({}, () => {
+db.User.deleteMany({}, () => {
 	adminList.forEach(admin => {
 		db.User.create(admin, (err, createdAdmin) => {
-			if (err) return restaurantList.status(500).json({
-				status: 500,
-				message: err
-			});
-
-			return (200).json({
-				status: 200,
-				message: 'Admin successfully created.',
-			});
+			if (err) return console.log(err)
 		});
 	});
 });
