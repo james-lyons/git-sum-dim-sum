@@ -5,22 +5,7 @@ const response = require('../routes/response');
 
 // ----------------------- Controllers ----------------------- //
 
-// Shows All Users
-const index = (req, res) => {
-    db.User.find({}, (error, foundUsers) => {
-        if (error) return res.status(500).json({
-            status: 500,
-            message: 'Something went wrong, please try again.'
-        });
-
-        return res.status(200).json({
-            status: 200,
-            message: 'Successfully found users',
-            data: foundUsers
-        })
-    });
-};
-
+// Get User for profile page
 const show = (req, res) => {
     db.User.findById(req.session.currentUser._id, (err, foundUser) => {
         if (err) return res.status(500).json({
@@ -53,7 +38,6 @@ const deleteUser = (req, res) => {
 };
 
 module.exports = {
-    index,
     show,
     deleteUser
 }

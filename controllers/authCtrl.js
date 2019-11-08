@@ -2,33 +2,18 @@
 
 const bcrypt = require('bcryptjs');
 const db = require('../models');
+const validateUser = require('../validation/userRegistration');
 
 // ----------------------- Controllers ----------------------- //
 
 // POST Create New User
 const register = (req, res) => {
+    const { errors, notValid } = validateUser(req.body);
 
-    const errors = [];
-    if (!req.body.name) {
-        errors.push({ field: 'name', message: 'Please enter your name' })
-    };
-
-    if (!req.body.email) {
-        errors.push({ field: 'email', message: 'Please enter your email '})
-    };
-
-    if (!req.body.password) {
-        errors.push({ field: 'password', message: 'Please enter your password' })
-    };
-
-    if (req.body.password !== req.body.password2) {
-        errors.push({ field: 'password', message: 'Passwords must match'})
-    };
-
-    if (errors.length) {
+    if (notValid) {
         return res.status(400).json({
             status: 400,
-            message: 'bad request'
+            errors
         });
     };
 
@@ -58,6 +43,7 @@ const register = (req, res) => {
                 const newUser = {
                     name: req.body.name,
                     email: req.body.email,
+                    profile_image: req.body.profile_image,
                     password: hash,
                     password2: hash
                 };
@@ -111,7 +97,7 @@ const login = (req, res) => {
                 return res.status(200).json({
                     status: 200,
                     message: 'Successfully logged in',
-                    data: req.session.currentUser
+                    data: foundUser
                 });
 
             } else {

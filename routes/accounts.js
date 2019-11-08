@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const ctrls = require('../controllers')
+const ctrls = require('../controllers');
+const authRequired = require('../middleware/authRequired');
 
-router.get('/', ctrls.accountsCtrl.index);
-router.get('/:id', ctrls.accountsCtrl.show);
-router.delete('/', ctrls.accountsCtrl.deleteUser);
+router.get('/:id', authRequired, ctrls.accountsCtrl.show);
+router.delete('/', authRequired, ctrls.accountsCtrl.deleteUser);
 
 module.exports = router;

@@ -23,13 +23,6 @@ const indexReviews = (req, res) => {
 
 // Create A Review
 const createReview = (req, res) => {
-    if (!req.session.currentUser) {
-        res.status(400).json({
-            status: 400,
-            message: 'Must be logged in to submit a review, please login!',
-        })
-    }
-
     const review = {
         author: req.session.currentUser._id,
         author_name: req.session.currentUser.name,
@@ -71,7 +64,7 @@ const createReview = (req, res) => {
 
 // Edit A Review
 const editReview = (req, res) => {
-    db.Review.findOneAndUpdate(req.params.id, req.body, (error, editedReview) => {
+    db.Review.findByIdAndUpdate(req.params.id, req.body, (error, editedReview) => {
         if (error) return res.status(500).json({
             status: 500,
             message: 'Something went wrong, please try again.',
@@ -87,7 +80,7 @@ const editReview = (req, res) => {
 
 // Delete A Review
 const deleteReview = (req, res) => {
-    db.Review.findOneAndDelete(req.params.id, (error, deletedReview) => {
+    db.Review.findByIdAndDelete(req.params.id, (error, deletedReview) => {
         if (error) return res.status(500).json({
             status: 500,
             message: 'Something went wrong, please try again.'

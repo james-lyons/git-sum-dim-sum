@@ -1,6 +1,5 @@
 // ------------------------- Modules ------------------------- //
 
-const bcrypt = require('bcryptjs');
 const db = require('../models');
 
 // ----------------------- Controllers ----------------------- //
@@ -96,7 +95,6 @@ const addRestaurant = (req, res) => {
 };
 
 const deleteRestaurant = (req, res) => {
-    console.log(req.params)
     if (req.session.currentUser.role !== "admin") {
         res.status(400).json({
             status: 400,

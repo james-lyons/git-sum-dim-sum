@@ -10,6 +10,11 @@ const userSchema = new Schema({
         type: String,
         required: true,
     },
+    profile_image: {
+        type: String,
+        required: true,
+        default: '../images/dumpling_icon.png'
+    },
     password: {
         type: String,
         required: true,
