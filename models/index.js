@@ -1,5 +1,5 @@
 mongoose = require('mongoose');
-const MONGO_URL = process.env.MONGODB_URI || 'mongodb://localhost:27017/project-1';
+const MONGO_URL = process.env.MONGODB_URI || 'mongodb://localhost:27017/git-sum-dim-sum';
 
 mongoose.connect(MONGO_URL, {
     useNewUrlParser: true,

@@ -26,14 +26,14 @@ app.use(session({
 }));
 
 const corsOptions = {
-    origin: 'http://localhost:3000',
+    origin: 'https://git-sum-dim-sum-react.herokuapp.com',
     methods: ["GET", "PUT", "POST", "HEAD", "DELETE", "OPTIONS"],
     headers: ["Origin", "X-Requested-With", "Content-Type", "Accept"],
     credentials: true,
     optionsSuccessStatus: 200
 };
 app.use(cors(corsOptions));
-app.options('http://localhost:3000', cors());
+app.options('https://git-sum-dim-sum-react.herokuapp.com', cors());
 
 // ------------------------------------- Routes ------------------------------------ //
 
