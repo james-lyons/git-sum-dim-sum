@@ -68,6 +68,7 @@ const editReview = (req, res) => {
         if (error) return res.status(500).json({
             status: 500,
             message: 'Something went wrong, please try again.',
+            data: editedReview
         });
 
         res.status(202).json({
@@ -83,7 +84,8 @@ const deleteReview = (req, res) => {
     db.Review.findByIdAndDelete(req.params.id, (error, deletedReview) => {
         if (error) return res.status(500).json({
             status: 500,
-            message: 'Something went wrong, please try again.'
+            message: 'Something went wrong, please try again.',
+            data: editedReview
         });
 
         res.status(200).json({

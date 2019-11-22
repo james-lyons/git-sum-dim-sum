@@ -16,7 +16,6 @@ const PORT = process.env.PORT || 4000;
 
 // ----------------------------------- Middleware ---------------------------------- //
 
-app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(session({
