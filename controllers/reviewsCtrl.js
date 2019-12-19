@@ -26,7 +26,8 @@ const createReview = (req, res) => {
     const review = {
         author: req.session.currentUser._id,
         author_name: req.session.currentUser.name,
-        ...req.body }
+        ...req.body
+    }
 
     db.Review.create(review, (error, createdReview) => {
         if (error) return res.status(500).json({
@@ -50,7 +51,7 @@ const createReview = (req, res) => {
                 message: 'Something went wrong, please try again.',
             });
 
-            foundUser.reviews.push(createdReview._id)
+            foundUser.reviews.push(createdReview.id)
             foundUser.save()
         });
     
@@ -68,7 +69,6 @@ const editReview = (req, res) => {
         if (error) return res.status(500).json({
             status: 500,
             message: 'Something went wrong, please try again.',
-            data: editedReview
         });
 
         res.status(202).json({
@@ -85,13 +85,11 @@ const deleteReview = (req, res) => {
         if (error) return res.status(500).json({
             status: 500,
             message: 'Something went wrong, please try again.',
-            data: editedReview
         });
 
         res.status(200).json({
             status: 200,
             message: 'Successfully deleted review.',
-            data: deletedReview
         });
     });
 };

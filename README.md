@@ -1,21 +1,24 @@
-App Name: Git Sum Dim Sum
+# Git Sum Dim Sum
 
-The main goal of this project was to create a basic web application with full C.R.U.D. functionality and a bit of personal flair.
+# Links
+- Front End Repo: https://github.com/james-lyons/git-sum-dim-sum-react
+- Heroku Link: https://gitsumdimsum.herokuapp.com/
 
-Heroku Link: https://gitsumdimsum.herokuapp.com/
+# Technologies Used:
+- Full M.E.R.N. stack
+- Database: MongoDB & Mongoose
+- Server Enviornment: Node.js
+- Server Framework: Express.js
+- Front end Framework: React
+- State management for React: Redux
+- Style Libraries: React Bootstrap
+- Version Control: Github / Git
+- Deployment Method: Heroku
 
-Technologies Used:
--Node Express
--Mongoose & MongoDB
--Google Maps Api
--EJS
+# Existing Features:
+- Account creation and authorization
+- Full C.R.U.D. functionality for creating, editing, and deleting revivews
+- Ability for admins to add / delete restraunts from database from admin portal and see basic data from website
 
-Existing Features:
--Full C.R.U.D. functionality for creating, editing, and deleting revivews
--Account creation and authorization
--Google Maps with unique markers and starting location based on specified addresses
-
-
-Planned Features:
-Ability to add to the restaurant database
-A pole on each restaurant page that users can add to which will determine a restaurants "best dish"
+# Planned Features:
+- A pole on each restaurant page that users can add to which will determine a restaurants "best dish"
